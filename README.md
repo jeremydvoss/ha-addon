@@ -44,3 +44,10 @@ docker run -d \
 ```
 
 5. Access port `3000`.
+
+# Added by Jeremy
+Had to change docker file to build from FROM node:25-alpine instead of using the cli arg. Added HA_URL and SUPERVISOR_TOKEN into the dockerfile.
+Then created an empty volume
+`docker build . -t ewelink_smart_home`
+`sudo docker run -d     --restart=unless-stopped     --network host     -v ./volume:/data     --name ewelink_smart_home     ewelink_smart_home`
+Then I got the bashio error
